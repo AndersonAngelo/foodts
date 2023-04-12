@@ -8,23 +8,23 @@ export const Order = model('Order', new Schema({
   status: {
     type: String,
     enum: ['WAITING', 'IN_PRODUCTION', 'DONE'],
-    default: 'WAITING'
+    default: 'WAITING',
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
-  product: {
+  products: {
     required: true,
     type: [{
       product: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'Product'
+        ref: 'Product',
       },
       quantity: {
         type: Number,
-        default: 1
+        default: 1,
       }
     }]
   }
