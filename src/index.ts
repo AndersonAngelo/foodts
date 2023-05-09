@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import { router } from "./router";
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017")
+  .connect("mongodb+srv://andchip:2023@cluster0.jzj65lp.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     const app = express();
     const port = 3001;
