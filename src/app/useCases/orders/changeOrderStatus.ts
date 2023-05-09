@@ -12,10 +12,12 @@ export async function changeOrderStatus(req: Request, res: Response) {
     if (!['WAITING', 'IN_PRODUCTION', 'DONE'].includes(status)) {
       return res.status(400).json({
         error: 'Status should be one of these: WAITING, IN_PRODUCTION, DONE'
-      })
+      });
     }
 
+    await Order.findByIdAndUpdate(orderId, { status });
 
+    res.sendStatus(204);
   } catch(e) {
     console.error(e);
     res.sendStatus(500);
