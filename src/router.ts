@@ -10,6 +10,7 @@ import { listProductsByCategory } from "./app/useCases/categories/listProductsBy
 import { listOrders } from "./app/useCases/orders/listOrders";
 import { createOrders } from "./app/useCases/orders/createOrders";
 import { changeOrderStatus } from "./app/useCases/orders/changeOrderStatus";
+import { cancelOrder } from "./app/useCases/orders/cancelOrder";
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -41,6 +42,4 @@ router.post('/orders', createOrders);
 
 router.patch('/orders/:orderId', changeOrderStatus);
 
-router.delete('/orders/:orderId',(req, res) => {
-  res.status(200)
-});
+router.delete('/orders/:orderId', cancelOrder);
